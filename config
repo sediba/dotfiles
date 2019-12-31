@@ -1,4 +1,16 @@
-font pango:System San Francisco Display 10
+#font pango:DejaVu Sans Mono 12
+#font pango:DejaVu Sans Mono, Terminus Bold Semi-Condensed 11
+#font pango:Droid Sans Mono Dotted 12
+#font pango:DroidSansMono 13
+#font pango:Sans 13
+#font pango:hermit 12
+font pango:Inconsolata 10
+#font pango:monospace 12
+#font pango:SourceCodePro-SemiBold 11
+#font pango:Source Code Pro for Powerline, FontAwesome Regular, Icons 9
+#font pango:Terminus 14px
+#font pango:UbuntuMono-regular 12
+#font pango:DejaVu Sans Mono 10
 
 set $up l
 set $down k
@@ -7,11 +19,19 @@ set $right semicolon
 
 floating_modifier Mod4
 
-bindsym Mod4+Return exec i3-sensible-terminal
+#bindsym Mod4+Return exec i3-sensible-terminal
+
+#bindsym Mod4+Shift+u exec --no-startup-id i3resize down
+#bindsym Mod4+Shift+i exec --no-startup-id i3resize up
+
+bindsym Mod4+Return exec rxvt
 
 bindsym Mod4+Shift+w exec firefox
 
 bindsym Mod4+Shift+q kill
+
+bindsym Mod4+x exec rxvt -e nnn
+bindsym Mod4+z exec rxvt -e alsamixer
 
 bindsym Mod4+$left focus left
 bindsym Mod4+$down focus down
@@ -180,13 +200,13 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
-exec_always feh --bg-fill ~/Pictures/alaska.jpg﻿
 
 exec_always firefox
 
-exec i3-sensible-terminal
-
+exec rxvt
 exec --no-startup-id compton -f
 
 bindsym Mod4+d exec dmenu_run
 #bindsym Mod4+d exec rofi -show run -lines 3 -eh 2 -width 100  -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
+
+
