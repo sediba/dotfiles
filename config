@@ -19,7 +19,8 @@ set $right semicolon
 
 floating_modifier Mod4
 
-#bindsym Mod4+Return exec i3-sensible-terminal
+#open i3-sensible-terminal (I usually use it for programming)
+bindsym Mod4+p exec i3-sensible-terminal
 
 #bindsym Mod4+Shift+u exec --no-startup-id i3resize down
 #bindsym Mod4+Shift+i exec --no-startup-id i3resize up
@@ -27,6 +28,8 @@ floating_modifier Mod4
 bindsym Mod4+Return exec rxvt
 
 bindsym Mod4+Shift+w exec firefox
+
+bindsym Mod4+Shift+a exec atom
 
 bindsym Mod4+Shift+q kill
 
@@ -111,6 +114,7 @@ bindsym Mod4+Shift+0 move container to workspace $workspace10
 
 #assign [class="Rhythmbox"] $workspace10
 assign [class="Firefox"] $workspace2
+assign [class="Atom"] $workspace3
 #assign [class="Gnome-terminal"] $workspace1
 
 # reload the configuration file
@@ -166,7 +170,7 @@ hide_edge_borders both
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+	status_command i3blocks
         tray_output primary
 	#position top
 	colors {
@@ -189,7 +193,8 @@ bar {
 # Please remove the following exec line:
 #######################################################################
 
-bindsym Mod4+Shift+x exec i3lock --color 475263
+#-u option is in order to remove the circle
+bindsym Mod4+Shift+x exec i3lock -u --color 475263
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -201,12 +206,11 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 
-exec_always firefox
-
+#exec_always firefox
+#exec firefox
 exec rxvt
 exec --no-startup-id compton -f
 
 bindsym Mod4+d exec dmenu_run
 #bindsym Mod4+d exec rofi -show run -lines 3 -eh 2 -width 100  -opacity "85" -bw 0 -bc "$bg-color" -bg "$bg-color" -fg "$text-color" -hlbg "$bg-color" -hlfg "#9575cd" -font "System San Francisco Display 18"
-
 
